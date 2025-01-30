@@ -1,8 +1,14 @@
-import { it } from 'vitest';
+import { it, vi } from 'vitest';
 
-it('should have a correct stack trace in browser mode', () => {
+it.only('should have a correct stack trace in browser mode', () => {
+  const overrideStack = 'Error: Override stack';
+
+  Object.defineProperty(Error.prototype, 'stack', {
+    get: () => overrideStack,
+  });
+
   const error = new Error();
-  console.log(error.stack);
+  throw error;
 });
 
 it('should have a correct `console.trace` output in browser mode', () => {

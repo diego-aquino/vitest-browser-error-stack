@@ -1,5 +1,7 @@
 # Vitest `error.stack` in browser mode
 
+This is a reproduction for https://github.com/vitest-dev/vitest/issues/7370.
+
 ## Getting started
 
 1. Clone the repository:
